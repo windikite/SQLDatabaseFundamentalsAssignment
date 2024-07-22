@@ -1,0 +1,8 @@
+My 18th assignment! The goal was to create an Entity Relationship Diagram for a bookstore management service with tables to manage things such as books, authors, orders, and customers. I did add shipments to round it off as well as a join table between books and orders to make relating them easier, as well as the same between authors and books to allow for multiple authors for the same book. It's just a table of two foreign keys, order_id and ISBN, which I saw online as a valid way of storing what books were in which orders without violating normalization rules. 
+
+Relationships:  
+1. Book would have a many to many relationship with orders, but by using the join table "book_order" it's changed to both books and orders have one to many relationships with book_order. There is no primary key as order_id would not be unique on the table, but allow for unique records that include an order_id and an ISBN.  
+2. Authors would have a many to many relationship with books, such that both an author could be attributed to many books and a book could have multiple authors. To facilitate relating authors and books better to allow for this, I'm using a join table that just relates ISBNs and authors similar to what I did with books.  
+3. Orders have two foreign keys; customer_id and shipment_id.  
+4. Customers has a one to many relationship with orders, as one customer can have many orders but each order is only related to one customer.  
+5. Shipments has a one to one relationship with orders, as each order should have exactly one shipment it's related to and vice versa. 
